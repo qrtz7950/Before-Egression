@@ -92,7 +92,7 @@ def get_api_date() :
 
 # get weather data
 # dong = 동네예보
-# cho = 초단기
+# cho = 초단기실황조회
 def get_weather_data() :
     
         api_date, api_time= get_api_date()
@@ -182,8 +182,6 @@ def process_cho(dictionary) :
     
     return REH,T1H
 
-# print(get_weather_data())  # get weather_info test
-
 # print on display
 def display_weather() :
     
@@ -197,8 +195,6 @@ def display_weather() :
     TMX = TMX + "°C"
     TMN = TMN + "°C"
 
-    # print(POP, PTY, SKY)   # display_weather test
-    # print(REH, T1H)
     i = 0
     while i < 2 :
         disp.clear()
@@ -222,7 +218,7 @@ def display_weather() :
     disp.display()
     time.sleep(0.1)
     
-# ultrasonic
+# ultrasonic sensor
 def ultrasonic() :
     
     GPIO.output(pin_trigger, GPIO.HIGH) # shoot the signal for 10 us
@@ -380,5 +376,3 @@ while True :
     d = ultrasonic()
     if d < d2 - 50 :
         display_weather()
-
-
