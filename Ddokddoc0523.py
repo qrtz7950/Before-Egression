@@ -16,12 +16,11 @@ import subprocess
 
 #ultrasonic lib
 
-#import time 중복
+#import time
 import RPi.GPIO as GPIO
 
 #----------------------------------------------------------------------
 # <initialize>
-
 
 # oled initialize
 
@@ -66,17 +65,17 @@ GPIO.setup(pin_echo, GPIO.IN) # echo signal
 
 time.sleep(.5)
 
-
+# Declarate global variable
 PTY = 0
 SKY = 0
 TMN = 100
 TMX = 100
 #----------------------------------------------------------------------
 
-# time cal
+# time calculate
 def get_api_date() :
     
-	standard_time = [2, 5, 8, 11, 14, 17, 20, 23]
+	standard_time = [2, 5, 8, 11, 14, 17, 20, 23] 		#APT renewal time
 	time_now = datetime.datetime.now(tz=pytz.timezone('Asia/Seoul')).strftime('%H')
 	check_time = int(time_now) - 1
 	day_calibrate = 0
@@ -92,10 +91,12 @@ def get_api_date() :
 	return (str(check_date), (str(check_time) + '00'))
 
 # get weather data
+# dong = 동네예보
+# cho = 초단기
 def get_weather_data() :
     
         api_date, api_time= get_api_date()
-        key = "Key" # insert your API key
+        key = "Key"				 # insert your API key
         date = api_date
         time = api_time
         time_now = datetime.datetime.now(tz=pytz.timezone('Asia/Seoul')).strftime('%H')
@@ -111,13 +112,10 @@ def get_weather_data() :
 	
         data_cho = urllib.request.urlopen(api_url_cho).read().decode('utf8')
         data_json_cho = json.loads(data_cho)
-        
-        # print(data_json_cho)  # load test
 	
         parsed_json_dong = data_json_dong['response']['body']['items']['item']
         parsed_json_cho = data_json_cho['response']['body']['items']['item']
         
-
         target_date = parsed_json_dong[0]['fcstDate']  # get date and time
         target_time = parsed_json_dong[0]['fcstTime']
 
