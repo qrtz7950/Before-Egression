@@ -1,8 +1,11 @@
 # Before-Egression
 
 Board : Raspberry Pi 2
+
 Rasbian version : JESSIE
+
 Display : SSD1306
+
 Sensor : HC-SR04(Ultrasonic sensor)
 
 This project made by Python 3.6.5
