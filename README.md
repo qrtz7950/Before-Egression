@@ -9,7 +9,7 @@ This project made by Python 3.6.5
 you must use library for Python3
 
 $ sudo apt-get install i2c-tools
-$ sudo apt-get install python3-smbus     #Enable I2C interface
+$ sudo apt-get install python3-smbus     # Enable I2C interface
 $ pip install urllib3
 $ sudo pip3 install pytz
 
