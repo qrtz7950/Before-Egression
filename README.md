@@ -8,8 +8,10 @@ Display : SSD1306
 
 Sensor : HC-SR04(Ultrasonic sensor)
 
+
 This project made by Python 3.6.5
 you must use library for Python3
+
 
 $ sudo apt-get install i2c-tools
 
@@ -19,8 +21,10 @@ $ pip install urllib3
 
 $ sudo pip3 install pytz
 
+
 Display:
 https://github.com/adafruit/Adafruit_SSD1306
+
 
 API Data:
 https://www.data.go.kr
